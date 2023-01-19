@@ -1,5 +1,9 @@
+
 import 'package:flutter/material.dart';
+import 'package:new1/class/le1.dart';
 import 'package:new1/customDrawer.dart';
+
+import 'class/s1.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomePage(),
+      home: CustomScraeen(),
     );
   }
 }
@@ -24,7 +28,10 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Page',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,)),
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            )),
         actions: [
           IconButton(
             onPressed: () {
