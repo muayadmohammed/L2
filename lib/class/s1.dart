@@ -120,7 +120,7 @@ class CustomScraeen extends StatelessWidget {
                     ),
                   ),
                   ListView(
-                    padding: EdgeInsets.all(50),
+                    padding: const EdgeInsets.all(50),
                     shrinkWrap: true,
                     children: [
                       Container(
