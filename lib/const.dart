@@ -16,3 +16,6 @@ class mytheam extends GetxController {
     update();
   }
 }
+
+
+

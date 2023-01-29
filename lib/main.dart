@@ -1,9 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:new1/class/le1.dart';
-import 'package:new1/customDrawer.dart';
-
-import 'class/s1.dart';
+import 'facebookProfile/profile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,97 +7,88 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: CustomScraeen(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Profile(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+enum SingingCharacter { lafayette, jefferson }
 
+class Check extends StatefulWidget {
+  const Check({super.key});
+
+  @override
+  State<Check> createState() => _CheckState();
+}
+
+SingingCharacter? _character = SingingCharacter.lafayette;
+
+class _CheckState extends State<Check> {
+  bool x = false;
+  double _currentSliderValue = 20;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home Page',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            )),
-        actions: [
-          IconButton(
-            onPressed: () {
-              print(MediaQuery.of(context).size.height);
-            },
-            icon: Icon(Icons.send),
-          )
-        ],
-      ),
-      drawer: const Drawer(
-        child: d2(),
-      ),
+      appBar: AppBar(),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            height: 200,
-            color: Colors.teal,
-          ),
-          Expanded(
-            child: ListView(
-              shrinkWrap: true,
-              children: [
-                const Divider(
-                  thickness: 1.4,
-                  color: Colors.red,
-                ),
-                Container(
-                  // width: 200,
-                  height: 500,
-                  color: Colors.purple,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  // width: 200,
-                  height: 500,
-                  color: Colors.red,
-                ),
-              ],
+          ListTile(
+            title: const Text('Lafayette'),
+            leading: Radio<SingingCharacter>(
+              value: SingingCharacter.lafayette,
+              groupValue: _character,
+              onChanged: (SingingCharacter? value) {
+                setState(() {
+                  _character = value;
+                });
+              },
             ),
+          ),
+          ListTile(
+            title: const Text('Thomas Jefferson'),
+            leading: Radio<SingingCharacter>(
+              value: SingingCharacter.jefferson,
+              groupValue: _character,
+              onChanged: (SingingCharacter? value) {
+                setState(() {
+                  _character = value;
+                });
+              },
+            ),
+          ),
+          const Text('CheckBox'),
+          Checkbox(
+            activeColor: Colors.red,
+            checkColor: Colors.black,
+            focusColor: Colors.yellow,
+            splashRadius: 22,
+            side: BorderSide(color: Colors.blue),
+            value: x,
+            onChanged: ((value) {
+              setState(() {
+                x = value!;
+              });
+            }),
+          ),
+          const Text('Slider'),
+          Slider(
+            value: _currentSliderValue,
+            max: 100,
+            divisions: 10,
+            label: _currentSliderValue.round().toString(),
+            onChanged: (value) {
+              setState(() {
+                _currentSliderValue = value;
+              });
+            },
           )
         ],
       ),
-      // Container(
-      //   width: 200,
-      //   height: 300,
-      //   color: Colors.teal,
-      // ),
-      // Divider(
-      //   thickness: 5.4,
-      //   color: Colors.red,
-      // ),
-      // Container(
-      //   width: 200,
-      //   height: 300,
-      //   color: Colors.purple,
-      // ),
-      // SizedBox(
-      //   height: 20,
-      // ),
-      // Container(
-      //   width: 200,
-      //   height: 300,
-      //   color: Colors.red,
-      // ),
     );
   }
-}
-
-c(int x) {
-  print(x);
 }
