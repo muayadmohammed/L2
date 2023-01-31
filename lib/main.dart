@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:new1/auth/login.dart';
+import 'package:new1/view/s2.dart';
 import 'facebookProfile/profile.dart';
 
 void main() {
@@ -9,7 +11,7 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Profile(),
     );

@@ -29,6 +29,8 @@ class _ss2State extends State<ss2> {
         title: Text("App"),
       ),
       body: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Checkbox(
             value: y,
@@ -118,9 +120,50 @@ class _ss2State extends State<ss2> {
               style: _textStyle,
             ),
           ),
-          Card(
-            
+          TextButton(
+            onPressed: () => showDialog(
+              context: context,
+              builder: (BuildContext context) => AlertDialog(
+                title: const Text('AlertDialog Title'),
+                content: const Text('AlertDialog description'),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () => Navigator.pop(context, 'Cancel'),
+                    child: const Text('Cancel'),
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.pop(context, 'OK'),
+                    child: const Text('OK'),
+                  ),
+                ],
+              ),
+            ),
+            child: const Text('Show Dialog'),
           ),
+          SimpleDialog(
+            alignment: Alignment.center,
+            title:const Center(child:  Text('Select')),
+            children: <Widget>[
+              SimpleDialogOption(
+                onPressed: () {
+                  // Navigator.pop(context, 'OK');
+                  print("object1");
+                },
+                child: const Center(
+                  child:  Text(
+                    'OK',
+                  ),
+                ),
+              ),
+              SimpleDialogOption(
+                onPressed: () {
+                  // Navigator.pop(context, 'OK');
+                  print("object2");
+                },
+                child:const Center(child:  Text('Cancel')),
+              ),
+            ],
+          )
         ],
       ),
     );
