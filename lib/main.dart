@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:new1/auth/login.dart';
 import 'package:new1/view/s2.dart';
+import 'auth/logIn.dart';
+import 'auth/singUp.dart';
+import 'auth/welcome.dart';
 import 'facebookProfile/profile.dart';
 
 void main() {
@@ -11,9 +13,14 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Profile(),
+      routes: {
+        "Welcome": (context) => const Welcome(),
+        "LogIn": (context) => const LogIn(),
+        "SingUp": (context) => const SingUp()
+      },
     );
   }
 }

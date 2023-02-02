@@ -1,71 +1,99 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter_svg/svg.dart';
 
-class LogIn extends StatelessWidget {
+import 'Cunst.dart';
+
+class LogIn extends StatefulWidget {
   const LogIn({super.key});
 
+  @override
+  State<LogIn> createState() => _LogInState();
+}
+
+class _LogInState extends State<LogIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        alignment: Alignment.topCenter,
         children: [
-          Container(
-            height: 300,
-            color: Colors.red,
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 280),
-            height: Get.height - 280,
-            decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(50),
-                  topRight: Radius.circular(50),
-                )),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: ListView(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    // crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Padding(
-                        padding: EdgeInsets.only(left: 15),
-                        child: Icon(
-                          Icons.arrow_back,
-                          size: 50,
-                        ),
-                      ),
-                      SizedBox(
-                        width: Get.width / 8,
-                      ),
-                      const Text(
-                        "Log In",
-                        style: TextStyle(
-                          fontSize: 60,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    width: Get.width / 9,
-                    height: Get.width / 2,
-                    color: Colors.amberAccent,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Email'),
-                      ],
-                    ),
-                  )
-                ],
-              ),
+          Center(
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 120,
+                ),
+                CustomTextTitel(
+                  text: "Login",
+                ),
+
+                const SizedBox(
+                  height: 25,
+                ),
+                SvgPicture.asset(
+                  "icons/login.svg",
+                  height: 200,
+                  width: 200,
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                CustomContainer(
+                  text: "Enter Your Email",
+                  icon: Icons.person,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                CustomContainer(
+                  text: "Enter Your Password",
+                  icon: Icons.lock,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                CustomMaterialButton(
+                  text: "LogIn",
+                  onPressed: () {
+                    Navigator.of(context).pushNamed("Welcome");
+                  },
+                ),
+                const SizedBox(
+                  height: 2,
+                ),
+                //"Don't have an account ? Sing Up"
+                CustomTextlButton(
+                  text: "Don't have an account ? Sing Up",
+                  onPressed: () {
+                    Navigator.of(context).pushNamed("SingUp");
+                  },
+                )
+              ],
             ),
-          )
+          ),
+          Positioned(
+            top: 0,
+            left: 0,
+            child: Image.asset(
+              "images/main_top.png",
+              width: 75,
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: Image.asset(
+              "images/main_bottom.png",
+              width: 50,
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            right: 0,
+            child: Image.asset(
+              "images/login_bottom.png",
+              width: 110,
+            ),
+          ),
         ],
       ),
     );
