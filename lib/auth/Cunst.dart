@@ -71,32 +71,41 @@ class CustomContainer extends StatelessWidget {
       height: 50,
       padding: const EdgeInsets.all(7),
       decoration: BoxDecoration(
-          boxShadow: const [BoxShadow(color: Color(0xFFF0E6FF), blurRadius: 1)],
-          color: const Color(0xFFF0E6FF),
-          borderRadius: BorderRadius.circular(50.0)),
-      child: TextFormField(
-        maxLines: 1,
-        cursorColor: const Color(0xFF55287E),
-        cursorHeight: 20,
-        cursorWidth: 1.3,
-        cursorRadius: const Radius.circular(10),
-        decoration: InputDecoration(
-          label: Text(text!),
-          labelStyle: const TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.w500,
-            color: Color(0xFF55287E),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0xFFF0E6FF),
+            blurRadius: 1,
           ),
-          prefixIcon: Icon(
-            icon,
-            size: 18,
-            color: const Color(0xFF55287E),
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20.0),
-            borderSide: const BorderSide(
-              width: 0,
-              style: BorderStyle.none,
+        ],
+        color: const Color(0xFFF0E6FF),
+        borderRadius: BorderRadius.circular(50.0),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 5),
+        child: TextFormField(
+          maxLines: 1,
+          cursorColor: const Color(0xFF55287E),
+          cursorHeight: 20,
+          cursorWidth: 1.3,
+          cursorRadius: const Radius.circular(10),
+          decoration: InputDecoration(
+            label: Text(text!),
+            labelStyle: const TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+              color: Color(0xFF55287E),
+            ),
+            prefixIcon: Icon(
+              icon,
+              size: 18,
+              color: const Color(0xFF55287E),
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20.0),
+              borderSide: const BorderSide(
+                width: 0,
+                style: BorderStyle.none,
+              ),
             ),
           ),
         ),
@@ -149,8 +158,13 @@ class CustomTextTitel extends StatelessWidget {
         color: Color(0xFF55287E),
         fontWeight: FontWeight.w400,
         fontFamily: "Courgette",
-        fontSize: 50,
-        shadows: [Shadow(color: Color(0xFF55287E), blurRadius: 2)],
+        fontSize: 40,
+        shadows:  [
+          Shadow(
+            color: Color(0xFF55287E),
+            blurRadius: 2,
+          ),
+        ],
       ),
     );
   }

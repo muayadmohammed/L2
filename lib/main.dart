@@ -4,6 +4,7 @@ import 'auth/logIn.dart';
 import 'auth/singUp.dart';
 import 'auth/welcome.dart';
 import 'facebookProfile/profile.dart';
+import 'onboarding/onboard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Profile(),
+      home: Welcome(),
       routes: {
         "Welcome": (context) => const Welcome(),
         "LogIn": (context) => const LogIn(),

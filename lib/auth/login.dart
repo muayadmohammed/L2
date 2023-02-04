@@ -3,14 +3,11 @@ import 'package:flutter_svg/svg.dart';
 
 import 'Cunst.dart';
 
-class LogIn extends StatefulWidget {
-  const LogIn({super.key});
+class LogIn extends StatelessWidget {
+  const LogIn({
+    super.key,
+  });
 
-  @override
-  State<LogIn> createState() => _LogInState();
-}
-
-class _LogInState extends State<LogIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,10 +15,9 @@ class _LogInState extends State<LogIn> {
         children: [
           Center(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(
-                  height: 120,
-                ),
                 CustomTextTitel(
                   text: "Login",
                 ),
