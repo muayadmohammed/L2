@@ -85,9 +85,8 @@ flutter:
         - asset: fonts/Courgette-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-    - family: Gilroy Pro
-      fonts:
-        - asset: fonts/Gilroy-Bold.ttf
+
+        
   # fonts:
   #   - family: Schyler
   #     fonts:

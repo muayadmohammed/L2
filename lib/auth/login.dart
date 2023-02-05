@@ -18,10 +18,13 @@ class LogIn extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomTextTitel(
+                // CustomTextTitel(
+                //   text: "Login",
+                // ),
+                xx(
                   text: "Login",
+                  color: Colors.red,
                 ),
-
                 const SizedBox(
                   height: 25,
                 ),
@@ -89,6 +92,36 @@ class LogIn extends StatelessWidget {
               "images/login_bottom.png",
               width: 110,
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class xx extends StatelessWidget {
+  xx({
+    super.key,
+    required this.text,
+    required this.color,
+  });
+  String text;
+  Color color;
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      textAlign: TextAlign.center,
+      text,
+      style: TextStyle(
+        color: color,
+        fontWeight: FontWeight.w400,
+        fontFamily: "Gilroy Pro",
+      
+        fontSize: 40,
+        shadows: const [
+          Shadow(
+            color: Color(0xFF55287E),
+            blurRadius: 2,
           ),
         ],
       ),

@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
+import 'package:new1/auth/logIn.dart';
+import 'package:get/get.dart';
 import 'Cunst.dart';
 
 class Welcome extends StatelessWidget {
-  const Welcome({super.key});
+  Welcome({
+    super.key,
+    required this.x,
+  });
+  int x;
 
   @override
   Widget build(BuildContext context) {
+    print(x);
     return Scaffold(
       body: Stack(
         children: [
@@ -16,8 +22,12 @@ class Welcome extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CustomTextTitel(
+                // CustomTextTitel(
+                //   text: "Welcome To My App",
+                // ),
+                xx(
                   text: "Welcome To My App",
+                  color: Colors.blue,
                 ),
                 const SizedBox(
                   height: 60,
@@ -40,8 +50,8 @@ class Welcome extends StatelessWidget {
                   ),
                   color: const Color(0xFF55287E),
                   onPressed: () {
-                    bool x = true;
-                    Navigator.of(context).pushReplacementNamed("LogIn");
+                    Get.defaultDialog(title: "I am a dialog");
+                    Navigator.of(context).pushNamed("LogIn");
                   },
                   child: const Text(
                     "LogIn",

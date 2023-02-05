@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new1/view/s2.dart';
+import 'animated/animatedContainer.dart';
 import 'auth/logIn.dart';
 import 'auth/singUp.dart';
 import 'auth/welcome.dart';
@@ -16,9 +17,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Welcome(),
+      home: SliverAppBarw(),
       routes: {
-        "Welcome": (context) => const Welcome(),
+        "Welcome": (context) => Welcome(
+              x: 2,
+            ),
         "LogIn": (context) => const LogIn(),
         "SingUp": (context) => const SingUp()
       },
