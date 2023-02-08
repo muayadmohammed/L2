@@ -48,6 +48,15 @@ class SingUp extends StatelessWidget {
                 CustomContainer(
                   text: "Enter Your Password",
                   icon: Icons.lock,
+                  isPassword: true,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                CustomContainer(
+                  text: "Repat Your Password",
+                  icon: Icons.lock,
+                  isPassword: true,
                 ),
                 const SizedBox(
                   height: 20,

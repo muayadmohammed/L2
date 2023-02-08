@@ -1,12 +1,42 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:new1/auth/welcome.dart';
 
 import 'Cunst.dart';
 
-class LogIn extends StatelessWidget {
+class LogIn extends StatefulWidget {
   const LogIn({
     super.key,
   });
+
+  @override
+  State<LogIn> createState() => _LogInState();
+}
+
+class _LogInState extends State<LogIn> {
+  Future _LogIn() async {
+    try {
+      UserCredential credential =
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailAddress.text.trim(),
+        password: _password.text.trim(),
+      );
+      return credential.user;
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  final TextEditingController _emailAddress = TextEditingController();
+  final TextEditingController _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +48,8 @@ class LogIn extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // CustomTextTitel(
-                //   text: "Login",
-                // ),
-                xx(
+                CustomTextTitel(
                   text: "Login",
-                  color: Colors.red,
                 ),
                 const SizedBox(
                   height: 25,
@@ -39,21 +65,33 @@ class LogIn extends StatelessWidget {
                 CustomContainer(
                   text: "Enter Your Email",
                   icon: Icons.person,
+                  textEditingController: _emailAddress,
                 ),
                 const SizedBox(
                   height: 20,
                 ),
+
                 CustomContainer(
                   text: "Enter Your Password",
                   icon: Icons.lock,
+                  textEditingController: _password,
+                  isPassword: true,
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 CustomMaterialButton(
                   text: "LogIn",
-                  onPressed: () {
-                    Navigator.of(context).pushNamed("Welcome");
+                  onPressed: () async {
+                    var x = await _LogIn();
+                    print(_emailAddress.text);
+                    print(_password.text);
+                    if (x != null) {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => Welcome()));
+                    } else {
+                      print(x);
+                    }
                   },
                 ),
                 const SizedBox(
@@ -62,8 +100,9 @@ class LogIn extends StatelessWidget {
                 //"Don't have an account ? Sing Up"
                 CustomTextlButton(
                   text: "Don't have an account ? Sing Up",
-                  onPressed: () {
-                    Navigator.of(context).pushNamed("SingUp");
+                  onPressed: () async {
+                    await FirebaseAuth.instance.signOut();
+                    // Navigator.of(context).pushNamed("SingUp");
                   },
                 )
               ],
@@ -116,7 +155,6 @@ class xx extends StatelessWidget {
         color: color,
         fontWeight: FontWeight.w400,
         fontFamily: "Gilroy Pro",
-      
         fontSize: 40,
         shadows: const [
           Shadow(

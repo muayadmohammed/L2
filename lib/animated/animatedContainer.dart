@@ -129,11 +129,11 @@ class SliverAppBarw extends StatelessWidget {
               (context, index) {
                 return InkWell(
                   onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => Welcome(x: index),
-                      ),
-                    );
+                    // Navigator.of(context).push(
+                    //   MaterialPageRoute(
+                    //     builder: (context) => Welcome(),
+                    //   ),
+                    // );
                     // Get.to(Welcome(x: index));
                   },
                   child: Container(

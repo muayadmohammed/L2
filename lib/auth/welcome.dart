@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:new1/auth/logIn.dart';
-import 'package:get/get.dart';
+
 import 'Cunst.dart';
+import 'logIn.dart';
 
 class Welcome extends StatelessWidget {
   Welcome({
     super.key,
-    required this.x,
+ 
   });
-  int x;
+
 
   @override
   Widget build(BuildContext context) {
-    print(x);
+
     return Scaffold(
       body: Stack(
         children: [
@@ -50,7 +50,6 @@ class Welcome extends StatelessWidget {
                   ),
                   color: const Color(0xFF55287E),
                   onPressed: () {
-                    Get.defaultDialog(title: "I am a dialog");
                     Navigator.of(context).pushNamed("LogIn");
                   },
                   child: const Text(

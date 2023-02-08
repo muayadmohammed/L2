@@ -17,11 +17,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SliverAppBarw(),
+      home: LogIn(),
       routes: {
-        "Welcome": (context) => Welcome(
-              x: 2,
-            ),
+        "Welcome": (context) => Welcome(),
         "LogIn": (context) => const LogIn(),
         "SingUp": (context) => const SingUp()
       },

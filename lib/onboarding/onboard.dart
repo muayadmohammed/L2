@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:new1/auth/welcome.dart';
 import 'package:new1/class2/app.dart';
 import 'constant.dart';
 import 'model/allinonboardscreen.dart';

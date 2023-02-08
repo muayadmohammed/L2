@@ -61,9 +61,13 @@ class CustomContainer extends StatelessWidget {
     super.key,
     this.text,
     this.icon,
+    this.textEditingController,
+    this.isPassword=false,
   });
   String? text;
   IconData? icon;
+  TextEditingController? textEditingController;
+  bool isPassword;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -83,10 +87,13 @@ class CustomContainer extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(top: 5),
         child: TextFormField(
+          controller: textEditingController,
           maxLines: 1,
           cursorColor: const Color(0xFF55287E),
           cursorHeight: 20,
           cursorWidth: 1.3,
+          keyboardType: TextInputType.visiblePassword,
+          obscureText: isPassword!,
           cursorRadius: const Radius.circular(10),
           decoration: InputDecoration(
             label: Text(text!),
@@ -159,7 +166,7 @@ class CustomTextTitel extends StatelessWidget {
         fontWeight: FontWeight.w400,
         fontFamily: "Courgette",
         fontSize: 40,
-        shadows:  [
+        shadows: [
           Shadow(
             color: Color(0xFF55287E),
             blurRadius: 2,
